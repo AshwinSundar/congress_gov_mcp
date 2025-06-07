@@ -3,7 +3,7 @@ import time
 from server import get_bills
 
 
-class TestCongressGovAPI(unittest.TestCase):
+class TestBillsAPI(unittest.TestCase):
     """Test the get_bills endpoint with real API calls"""
 
     def setUp(self):
