@@ -1,5 +1,7 @@
 # <span>Congress.gov</span> MCP server
 
+Ever wonder what our (US) Congress is up to? Tired of reading the news to find out? Ask the US Congress API yourself.
+
 Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 
 ## Installation
