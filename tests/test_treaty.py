@@ -39,7 +39,7 @@ class TestTreatyAPI(unittest.TestCase):
                 if key in result:
                     treaty_data = result[key]
                     break
-            
+
             if treaty_data is not None:
                 self.assertIsInstance(treaty_data, list)
                 # Should have at most 5 treaties
@@ -57,7 +57,7 @@ class TestTreatyAPI(unittest.TestCase):
                 if key in result:
                     treaty_data = result[key]
                     break
-            
+
             if treaty_data is not None:
                 self.assertIsInstance(treaty_data, list)
                 # Should have at most 3 treaties
@@ -75,7 +75,7 @@ class TestTreatyAPI(unittest.TestCase):
                 if key in result:
                     treaty_data = result[key]
                     break
-            
+
             if treaty_data is not None and len(treaty_data) > 0:
                 treaty = treaty_data[0]
                 # Check for common treaty fields
@@ -95,7 +95,7 @@ class TestTreatyAPI(unittest.TestCase):
                 if key in result:
                     treaty_data = result[key]
                     break
-            
+
             if treaty_data is not None:
                 self.assertLessEqual(len(treaty_data), 2)
 

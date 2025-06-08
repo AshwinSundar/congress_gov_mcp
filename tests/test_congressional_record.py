@@ -42,7 +42,7 @@ class TestCongressionalRecordAPI(unittest.TestCase):
                     if key in result:
                         record_data = result[key]
                         break
-            
+
             if record_data is not None:
                 self.assertIsInstance(record_data, list)
                 # Should have at most 5 records
@@ -63,7 +63,7 @@ class TestCongressionalRecordAPI(unittest.TestCase):
                     if key in result:
                         record_data = result[key]
                         break
-            
+
             if record_data is not None:
                 self.assertIsInstance(record_data, list)
                 # Should have at most 3 records
@@ -81,7 +81,7 @@ class TestCongressionalRecordAPI(unittest.TestCase):
                 if key in result:
                     record_data = result[key]
                     break
-            
+
             if record_data is not None and isinstance(record_data, list) and len(record_data) > 0:
                 record = record_data[0]
                 # Check for common record fields
@@ -104,7 +104,7 @@ class TestCongressionalRecordAPI(unittest.TestCase):
                     if key in result:
                         record_data = result[key]
                         break
-            
+
             if record_data is not None:
                 self.assertLessEqual(len(record_data), 2)
 

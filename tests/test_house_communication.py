@@ -47,7 +47,7 @@ class TestHouseCommunicationAPI(unittest.TestCase):
                 if key in result:
                     comm_data = result[key]
                     break
-            
+
             if comm_data is not None:
                 self.assertIsInstance(comm_data, list)
                 # Should have at most 5 communications
@@ -65,7 +65,7 @@ class TestHouseCommunicationAPI(unittest.TestCase):
                 if key in result:
                     comm_data = result[key]
                     break
-            
+
             if comm_data is not None:
                 self.assertIsInstance(comm_data, list)
                 # Should have at most 3 communications
@@ -83,7 +83,7 @@ class TestHouseCommunicationAPI(unittest.TestCase):
                 if key in result:
                     comm_data = result[key]
                     break
-            
+
             if comm_data is not None and len(comm_data) > 0:
                 communication = comm_data[0]
                 # Check for common communication fields
@@ -103,7 +103,7 @@ class TestHouseCommunicationAPI(unittest.TestCase):
                 if key in result:
                     comm_data = result[key]
                     break
-            
+
             if comm_data is not None:
                 self.assertLessEqual(len(comm_data), 2)
 

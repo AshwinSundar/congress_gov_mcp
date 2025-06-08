@@ -72,7 +72,7 @@ class TestCommitteesAPI(unittest.TestCase):
         """Test get_committees with specific system code"""
         # Get a committee first to get a valid system code
         committees_result = get_committees(limit=1)
-        
+
         self.assertIsInstance(committees_result, dict)
         if "error" not in committees_result and "committees" in committees_result:
             committees = committees_result["committees"]

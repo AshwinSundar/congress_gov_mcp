@@ -47,7 +47,7 @@ class TestCommitteePrintsAPI(unittest.TestCase):
                 if key in result:
                     print_data = result[key]
                     break
-            
+
             if print_data is not None:
                 self.assertIsInstance(print_data, list)
                 # Should have at most 5 prints
@@ -65,7 +65,7 @@ class TestCommitteePrintsAPI(unittest.TestCase):
                 if key in result:
                     print_data = result[key]
                     break
-            
+
             if print_data is not None:
                 self.assertIsInstance(print_data, list)
                 # Should have at most 3 prints
@@ -83,7 +83,7 @@ class TestCommitteePrintsAPI(unittest.TestCase):
                 if key in result:
                     print_data = result[key]
                     break
-            
+
             if print_data is not None and len(print_data) > 0:
                 print_item = print_data[0]
                 # Check for common print fields
@@ -103,7 +103,7 @@ class TestCommitteePrintsAPI(unittest.TestCase):
                 if key in result:
                     print_data = result[key]
                     break
-            
+
             if print_data is not None:
                 self.assertLessEqual(len(print_data), 2)
 

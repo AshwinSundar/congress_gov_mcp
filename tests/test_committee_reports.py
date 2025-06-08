@@ -47,7 +47,7 @@ class TestCommitteeReportsAPI(unittest.TestCase):
                 if key in result:
                     report_data = result[key]
                     break
-            
+
             if report_data is not None:
                 self.assertIsInstance(report_data, list)
                 # Should have at most 5 reports
@@ -65,7 +65,7 @@ class TestCommitteeReportsAPI(unittest.TestCase):
                 if key in result:
                     report_data = result[key]
                     break
-            
+
             if report_data is not None:
                 self.assertIsInstance(report_data, list)
                 # Should have at most 3 reports
@@ -83,7 +83,7 @@ class TestCommitteeReportsAPI(unittest.TestCase):
                 if key in result:
                     report_data = result[key]
                     break
-            
+
             if report_data is not None and len(report_data) > 0:
                 report = report_data[0]
                 # Check for common report fields
@@ -103,7 +103,7 @@ class TestCommitteeReportsAPI(unittest.TestCase):
                 if key in result:
                     report_data = result[key]
                     break
-            
+
             if report_data is not None:
                 self.assertLessEqual(len(report_data), 2)
 

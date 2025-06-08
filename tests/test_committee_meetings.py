@@ -47,7 +47,7 @@ class TestCommitteeMeetingsAPI(unittest.TestCase):
                 if key in result:
                     meeting_data = result[key]
                     break
-            
+
             if meeting_data is not None:
                 self.assertIsInstance(meeting_data, list)
                 # Should have at most 5 meetings
@@ -65,7 +65,7 @@ class TestCommitteeMeetingsAPI(unittest.TestCase):
                 if key in result:
                     meeting_data = result[key]
                     break
-            
+
             if meeting_data is not None:
                 self.assertIsInstance(meeting_data, list)
                 # Should have at most 3 meetings
@@ -83,7 +83,7 @@ class TestCommitteeMeetingsAPI(unittest.TestCase):
                 if key in result:
                     meeting_data = result[key]
                     break
-            
+
             if meeting_data is not None and len(meeting_data) > 0:
                 meeting = meeting_data[0]
                 # Check for common meeting fields
@@ -103,7 +103,7 @@ class TestCommitteeMeetingsAPI(unittest.TestCase):
                 if key in result:
                     meeting_data = result[key]
                     break
-            
+
             if meeting_data is not None:
                 self.assertLessEqual(len(meeting_data), 2)
 

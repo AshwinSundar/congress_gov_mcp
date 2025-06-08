@@ -84,7 +84,7 @@ class TestSummariesAPI(unittest.TestCase):
                 expected_fields = ["actionDate", "bill"]
                 for field in expected_fields:
                     self.assertIn(field, summary, f"Missing field: {field}")
-                
+
                 # Check bill structure
                 if "bill" in summary:
                     bill = summary["bill"]

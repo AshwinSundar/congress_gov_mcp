@@ -47,7 +47,7 @@ class TestHearingsAPI(unittest.TestCase):
                 if key in result:
                     hearing_data = result[key]
                     break
-            
+
             if hearing_data is not None:
                 self.assertIsInstance(hearing_data, list)
                 # Should have at most 5 hearings
@@ -65,7 +65,7 @@ class TestHearingsAPI(unittest.TestCase):
                 if key in result:
                     hearing_data = result[key]
                     break
-            
+
             if hearing_data is not None:
                 self.assertIsInstance(hearing_data, list)
                 # Should have at most 3 hearings
@@ -83,7 +83,7 @@ class TestHearingsAPI(unittest.TestCase):
                 if key in result:
                     hearing_data = result[key]
                     break
-            
+
             if hearing_data is not None and len(hearing_data) > 0:
                 hearing = hearing_data[0]
                 # Check for common hearing fields
@@ -103,7 +103,7 @@ class TestHearingsAPI(unittest.TestCase):
                 if key in result:
                     hearing_data = result[key]
                     break
-            
+
             if hearing_data is not None:
                 self.assertLessEqual(len(hearing_data), 2)
 

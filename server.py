@@ -20,6 +20,12 @@ congress_gov_api_key = os.environ.get("CONGRESS_GOV_API_KEY")
 
 
 @mcp.tool()
+def get_swagger():
+    url = "https://raw.githubusercontent.com/LibraryOfCongress/api.congress.gov/refs/heads/main/Documentation/swagger.json"
+    return requests.get(url).json()
+
+
+@mcp.tool()
 def get_bills(
     congress: int | None = None,
     bill_type: str | None = None,
@@ -31,11 +37,19 @@ def get_bills(
     sort: str = "updateDate+desc"
 ) -> dict:
     """
-    Retrieve bills from the Congress.gov API.
+    Retrieve a list of bills. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/BillEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        bill_type: Type of bill (hr, s, hjres, sjres, hconres, sconres, hres, sres)
+        bill_type: Type of bill
+            - hr: House of Representatives Bill
+            - s: Senate Bill
+            - hjres: House Joint Resolution
+            - sjres: Senate Joint Resolution
+            - hconres: House Concurrent Resolution
+            - sconres: Senate Concurrent Resolution
+            - hres: House Simple Resolution
+            - sres: Senate Simple Resolution
         bill_number: Specific bill number (requires congress and bill_type)
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -93,11 +107,14 @@ def get_amendments(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve amendments from the Congress.gov API.
+    Retrieve amendments from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/AmendmentEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        amendment_type: Type of amendment (hamdt, samdt, suamdt)
+        amendment_type: Type of amendment
+            - hamdt: House Amendment
+            - samdt: Senate Amendment
+            - suamdt: Senate Unprinted Amendment
         amendment_number: Specific amendment number (requires congress and amendment_type)
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -152,11 +169,19 @@ def get_summaries(
     sort: str = "updateDate+desc"
 ) -> dict:
     """
-    Retrieve bill summaries from the Congress.gov API.
+    Retrieve bill summaries from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/SummariesEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        bill_type: Type of bill (hr, s, hjres, sjres, hconres, sconres, hres, sres)
+        bill_type: Type of bill
+            - hr: House of Representatives Bill
+            - s: Senate Bill
+            - hjres: House Joint Resolution
+            - sjres: Senate Joint Resolution
+            - hconres: House Concurrent Resolution
+            - sconres: Senate Concurrent Resolution
+            - hres: House Simple Resolution
+            - sres: Senate Simple Resolution
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
         from_datetime: Start timestamp (YYYY-MM-DDTHH:MM:SSZ format)
@@ -206,7 +231,7 @@ def get_congress(
     limit: int = 20
 ) -> dict:
     """
-    Retrieve congress information from the Congress.gov API.
+    Retrieve congress information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CongressEndpoint.md
 
     Args:
         congress: Specific congress number (e.g., 118 for 118th Congress) or None for all
@@ -251,7 +276,7 @@ def get_members(
     current_member: bool | None = None
 ) -> dict:
     """
-    Retrieve member information from the Congress.gov API.
+    Retrieve member information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/MemberEndpoint.md
 
     Args:
         bioguide_id: Specific member bioguide ID (e.g., "A000374")
@@ -307,7 +332,7 @@ def get_house_votes(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve House vote information from the Congress.gov API.
+    Retrieve House vote information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/HouseRollCallVoteEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
@@ -364,7 +389,7 @@ def get_committees(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve committee information from the Congress.gov API.
+    Retrieve committee information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CommitteeEndpoint.md
 
     Args:
         system_code: Specific committee system code (e.g., "hsag" for House Agriculture)
@@ -417,11 +442,14 @@ def get_committee_reports(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve committee report information from the Congress.gov API.
+    Retrieve committee report information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CommitteeReportEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        report_type: Type of report (hrpt, srpt, etc.)
+        report_type: Type of report
+            - hrpt: House Report
+            - srpt: Senate Report
+            - erpt: Executive Report
         report_number: Specific report number
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -476,11 +504,14 @@ def get_committee_prints(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve committee print information from the Congress.gov API.
+    Retrieve committee print information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CommitteePrintEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        print_type: Type of print (hprt, sprt, etc.)
+        print_type: Type of print
+            - hprt: House Print
+            - sprt: Senate Print
+            - jprt: Joint Committee Print
         print_number: Specific print number
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -534,7 +565,7 @@ def get_committee_meetings(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve committee meeting information from the Congress.gov API.
+    Retrieve committee meeting information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CommitteeMeetingEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
@@ -590,7 +621,7 @@ def get_hearings(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve hearing information from the Congress.gov API.
+    Retrieve hearing information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/HearingEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
@@ -649,11 +680,15 @@ def get_congressional_record(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve congressional record information from the Congress.gov API.
+    Retrieve congressional record information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/DailyCongressionalRecordEndpoint.md
 
     Args:
         volume: Volume number
-        page_prefix: Page prefix (e.g., "h", "s", "e")
+        page_prefix: Page prefix
+            - h: House section
+            - s: Senate section
+            - e: Extensions of Remarks section
+            - d: Daily Digest section
         page_number: Specific page number
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -707,7 +742,7 @@ def get_daily_congressional_record(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve daily congressional record information from the Congress.gov API.
+    Retrieve daily congressional record information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/DailyCongressionalRecordEndpoint.md
 
     Args:
         volume: Volume number
@@ -763,7 +798,7 @@ def get_bound_congressional_record(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve bound congressional record information from the Congress.gov API.
+    Retrieve bound congressional record information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/BoundCongressionalRecordEndpoint.md
 
     Args:
         year: Year
@@ -822,11 +857,15 @@ def get_house_communication(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve House communication information from the Congress.gov API.
+    Retrieve House communication information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/HouseCommunicationEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        communication_type: Type of communication (ec, ml, pm, pt)
+        communication_type: Type of communication
+            - ec: Executive Communication
+            - ml: Memorial
+            - pm: Presidential Message
+            - pt: Petition
         communication_number: Specific communication number
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -880,7 +919,7 @@ def get_house_requirement(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve House requirement information from the Congress.gov API.
+    Retrieve House requirement information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/HouseRequirementEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
@@ -936,11 +975,14 @@ def get_senate_communication(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve Senate communication information from the Congress.gov API.
+    Retrieve Senate communication information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/SenateCommunicationEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
-        communication_type: Type of communication (ec, ml, pm, pt)
+        communication_type: Type of communication
+            - ec: Executive Communication
+            - pm: Presidential Message
+            - pom: Petition or Memorial
         communication_number: Specific communication number
         offset: Starting record (default 0)
         limit: Maximum records to return (max 250, default 20)
@@ -994,7 +1036,7 @@ def get_nomination(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve nomination information from the Congress.gov API.
+    Retrieve nomination information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/NominationEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
@@ -1048,7 +1090,7 @@ def get_crsreport(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve CRS report information from the Congress.gov API.
+    Retrieve CRS (Congressional Research Service) report information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/CRSReportEndpoint.md
 
     Args:
         product_code: Specific product code for CRS report
@@ -1100,7 +1142,7 @@ def get_treaty(
     to_datetime: str | None = None
 ) -> dict:
     """
-    Retrieve treaty information from the Congress.gov API.
+    Retrieve treaty information from the Congress.gov API. Full documentation for this endpoint -> https://github.com/LibraryOfCongress/api.congress.gov/blob/main/Documentation/TreatyEndpoint.md
 
     Args:
         congress: Congress number (e.g., 118 for 118th Congress)
@@ -1143,3 +1185,7 @@ def get_treaty(
             "error": f"Failed to retrieve treaty information: {str(e)}",
             "status_code": getattr(e.response, "status_code", None)
         }
+
+
+if __name__ == "__main__":
+    mcp.run()

@@ -81,7 +81,7 @@ class TestMembersAPI(unittest.TestCase):
         """Test get_members with specific bioguide ID"""
         # Get a member first to get a valid bioguide ID
         members_result = get_members(limit=1)
-        
+
         self.assertIsInstance(members_result, dict)
         if "error" not in members_result and "members" in members_result:
             members = members_result["members"]

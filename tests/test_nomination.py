@@ -39,7 +39,7 @@ class TestNominationAPI(unittest.TestCase):
                 if key in result:
                     nom_data = result[key]
                     break
-            
+
             if nom_data is not None:
                 self.assertIsInstance(nom_data, list)
                 # Should have at most 5 nominations
@@ -57,7 +57,7 @@ class TestNominationAPI(unittest.TestCase):
                 if key in result:
                     nom_data = result[key]
                     break
-            
+
             if nom_data is not None:
                 self.assertIsInstance(nom_data, list)
                 # Should have at most 3 nominations
@@ -75,7 +75,7 @@ class TestNominationAPI(unittest.TestCase):
                 if key in result:
                     nom_data = result[key]
                     break
-            
+
             if nom_data is not None and len(nom_data) > 0:
                 nomination = nom_data[0]
                 # Check for common nomination fields
@@ -95,7 +95,7 @@ class TestNominationAPI(unittest.TestCase):
                 if key in result:
                     nom_data = result[key]
                     break
-            
+
             if nom_data is not None:
                 self.assertLessEqual(len(nom_data), 2)
 

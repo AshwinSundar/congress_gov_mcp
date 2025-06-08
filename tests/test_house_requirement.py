@@ -39,7 +39,7 @@ class TestHouseRequirementAPI(unittest.TestCase):
                 if key in result:
                     req_data = result[key]
                     break
-            
+
             if req_data is not None:
                 self.assertIsInstance(req_data, list)
                 # Should have at most 5 requirements
@@ -57,7 +57,7 @@ class TestHouseRequirementAPI(unittest.TestCase):
                 if key in result:
                     req_data = result[key]
                     break
-            
+
             if req_data is not None:
                 self.assertIsInstance(req_data, list)
                 # Should have at most 3 requirements
@@ -75,7 +75,7 @@ class TestHouseRequirementAPI(unittest.TestCase):
                 if key in result:
                     req_data = result[key]
                     break
-            
+
             if req_data is not None and len(req_data) > 0:
                 requirement = req_data[0]
                 # Check for common requirement fields
@@ -95,7 +95,7 @@ class TestHouseRequirementAPI(unittest.TestCase):
                 if key in result:
                     req_data = result[key]
                     break
-            
+
             if req_data is not None:
                 self.assertLessEqual(len(req_data), 2)
 
