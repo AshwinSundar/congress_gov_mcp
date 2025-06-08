@@ -78,7 +78,7 @@ claude mcp add -s user --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="your-
 claude mcp add -s project --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="your-api-key-here /path/to/congress_gov_mcp/server.py "
 ```
 
-## Endpoints
+## Roadmap
 
 - [x] api.congress.gov
     - [x] /bill
