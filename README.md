@@ -13,7 +13,7 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
     ```
 2. Get a [Congress.gov API key](https://api.congress.gov/sign-up/).
 
-### Setup
+### Initial Setup
 
 1. Complete [Prerequisites](#Prerequisites)
 2. Clone this repository, and `cd` in:
@@ -23,7 +23,7 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
     ```
 
     ```
-    cd congress_gov_mcp`
+    cd congress_gov_mcp
     ```
 
 3. Install dependencies:
@@ -45,7 +45,7 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 >CONGRESS_GOV_API_KEY="your-api-key-here"
 >```
 
-### Configuration
+### Client Configuration
 
 #### Claude Desktop
 
@@ -56,7 +56,7 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 ```
 which uv
 ```
-2. Add the following to your Claude Desktop configuration file:
+2. Add the following to your Claude Desktop configuration file, inside the `mcpServers` block:
 
     **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 
@@ -65,7 +65,6 @@ which uv
 ```json
 {
   "mcpServers": {
-    ...,
     "congress_gov_mcp": {
       "command": "/absolute_path/to/uv",
       "args": [
@@ -84,12 +83,11 @@ which uv
 
 1. Complete [Prerequisites](#Prerequisites)
 
-2. Add the following to `.mcp.json` in the directory you are running Claude Code in:
+2. Add the following to `.mcp.json` in the directory you are running Claude Code in, inside the `mcpServers` block:
 
 ```json
 {
   "mcpServers": {
-    ...,
     "congress_gov_mcp": {
       "command": "uv",
       "args": [
