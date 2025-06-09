@@ -7,8 +7,10 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 ## Installation
 
 ### Prerequisites
-
-1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/). The easiest way on macOS and Linux is `curl -LsSf https://astral.sh/uv/install.sh | sh`
+1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/). The easiest way on macOS and Linux is:
+    ```
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
 2. Get a [Congress.gov API key](https://api.congress.gov/sign-up/).
 
 ### Setup
@@ -16,17 +18,25 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 1. Complete [Prerequisites](#Prerequisites)
 2. Clone this repository, and `cd` in:
 
-    `git clone http://github.com/AshwinSundar/congress_gov_mcp`
+    ```
+    git clone http://github.com/AshwinSundar/congress_gov_mcp
+    ```
 
-    `cd congress_gov_mcp`
+    ```
+    cd congress_gov_mcp`
+    ```
 
 3. Install dependencies:
 
-    `uv sync`
+    ```
+    uv sync`
+    ```
 
 3. Create a `.env` file from the template:
 
-    `cp .env.template .env`
+    ```
+    cp .env.template .env`
+    ```
 
 4. Add your Congress.gov API key to the `.env` file:
 
@@ -35,7 +45,9 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 >CONGRESS_GOV_API_KEY="your-api-key-here"
 >```
 
-### Configure for Claude Desktop
+### Configuration
+
+#### Claude Desktop
 
 1. Complete [Prerequisites](#Prerequisites)
 
@@ -61,7 +73,7 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 }
 ```
 
-### Configure for Claude Code
+#### Claude Code
 
 #### Local Installation
 ```
@@ -84,9 +96,9 @@ claude mcp add -s project --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="yo
 
 - [x] api.congress.gov
     - [x] /bill
-        - [ ] /{congress}
-        - [ ] /{congress}/{billType}
-        - [ ] /{congress}/{billType}/{billNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{billType}
+        - [x] /{congress}/{billType}/{billNumber}
             - [ ] /actions
             - [ ] /amendments
             - [ ] /committees
@@ -97,25 +109,25 @@ claude mcp add -s project --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="yo
             - [ ] /text
             - [ ] /titles
     - [x] /amendment
-        - [ ] /{congress}
-        - [ ] /{congress}/{amendmentType}
-        - [ ] /{congress}/{amendmentType}/{amendmentNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{amendmentType}
+        - [x] /{congress}/{amendmentType}/{amendmentNumber}
             - [ ] /actions
             - [ ] /cosponsors
             - [ ] /amendments
             - [ ] /text
     - [x] /summaries
-        - [ ] /{congress}
-        - [ ] /{congress}/{billType}
+        - [x] /{congress}
+        - [x] /{congress}/{billType}
     - [x] /congress
-        - [ ] /{congress}
+        - [x] /{congress}
         - [ ] /current
     - [x] /member
-        - [ ] /{bioguideId}
+        - [x] /{bioguideId}
             - [ ] /sponsored-legislation
             - [ ] /cosponsored-legislation
     - [x] /committee
-        - [ ] /{systemCode}
+        - [x] /{systemCode}
             - [ ] /bills
             - [ ] /reports
             - [ ] /nominations
@@ -124,59 +136,59 @@ claude mcp add -s project --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="yo
             - [ ] /house-communication
             - [ ] /senate-communication
     - [x] /committee-report
-        - [ ] /{congress}
-        - [ ] /{congress}/{reportType}
-        - [ ] /{congress}/{reportType}/{reportNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{reportType}
+        - [x] /{congress}/{reportType}/{reportNumber}
             - [ ] /text
     - [x] /committee-print
-        - [ ] /{congress}
-        - [ ] /{congress}/{printType}
-        - [ ] /{congress}/{printType}/{printNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{printType}
+        - [x] /{congress}/{printType}/{printNumber}
             - [ ] /text
     - [x] /committee-meeting
-        - [ ] /{congress}
-        - [ ] /{congress}/{chamber}
+        - [x] /{congress}
+        - [x] /{congress}/{chamber}
             - [ ] /meetings
     - [x] /hearing
-        - [ ] /{congress}
-        - [ ] /{congress}/{chamber}
-        - [ ] /{congress}/{chamber}/{hearingNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{chamber}
+        - [x] /{congress}/{chamber}/{hearingNumber}
     - [x] /house-vote
-        - [ ] /{congress}
-        - [ ] /{congress}/{session}
-        - [ ] /{congress}/{session}/{rollCallNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{session}
+        - [x] /{congress}/{session}/{rollCallNumber}
     - [x] /congressional-record
-        - [ ] /{volume}
-        - [ ] /{volume}/{pagePrefix}
-        - [ ] /{volume}/{pagePrefix}/{pageNumber}
+        - [x] /{volume}
+        - [x] /{volume}/{pagePrefix}
+        - [x] /{volume}/{pagePrefix}/{pageNumber}
     - [x] /daily-congressional-record
-        - [ ] /{volume}
-        - [ ] /{volume}/{issue}
+        - [x] /{volume}
+        - [x] /{volume}/{issue}
     - [x] /bound-congressional-record
-        - [ ] /{year}
-        - [ ] /{year}/{month}
-        - [ ] /{year}/{month}/{day}
+        - [x] /{year}
+        - [x] /{year}/{month}
+        - [x] /{year}/{month}/{day}
     - [x] /house-communication
-        - [ ] /{congress}
-        - [ ] /{congress}/{communicationType}
-        - [ ] /{congress}/{communicationType}/{communicationNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{communicationType}
+        - [x] /{congress}/{communicationType}/{communicationNumber}
     - [x] /house-requirement
-        - [ ] /{congress}
-        - [ ] /{congress}/{requirementNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{requirementNumber}
     - [x] /senate-communication
-        - [ ] /{congress}
-        - [ ] /{congress}/{communicationType}
-        - [ ] /{congress}/{communicationType}/{communicationNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{communicationType}
+        - [x] /{congress}/{communicationType}/{communicationNumber}
     - [x] /nomination
-        - [ ] /{congress}
-        - [ ] /{congress}/{nominationNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{nominationNumber}
             - [ ] /actions
             - [ ] /hearings
     - [x] /crsreport
-        - [ ] /{productCode}
+        - [x] /{productCode}
     - [x] /treaty
-        - [ ] /{congress}
-        - [ ] /{congress}/{treatyNumber}
+        - [x] /{congress}
+        - [x] /{congress}/{treatyNumber}
             - [ ] /actions
             - [ ] /committees
 
