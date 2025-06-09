@@ -29,13 +29,13 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 3. Install dependencies:
 
     ```
-    uv sync`
+    uv sync
     ```
 
 3. Create a `.env` file from the template:
 
     ```
-    cp .env.template .env`
+    cp .env.template .env
     ```
 
 4. Add your Congress.gov API key to the `.env` file:
@@ -51,46 +51,58 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 
 1. Complete [Prerequisites](#Prerequisites)
 
+2. Copy the absolute path to your `uv` installation:
+
+```
+which uv
+```
 2. Add the following to your Claude Desktop configuration file:
 
-**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+    **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+    **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
   "mcpServers": {
+    ...,
+    "congress_gov_mcp": {
+      "command": "/absolute_path/to/uv",
+      "args": [
+        "run",
+        "--env-file",
+        "/absolute_path/to/congress_gov_mcp/.env",
+        "/absolute_path_to/congress_gov_mcp/server.py"
+      ]
+    }
+  }
+}
+
+````
+
+#### Claude Code
+
+1. Complete [Prerequisites](#Prerequisites)
+
+2. Add the following to `.mcp.json` in the directory you are running Claude Code in:
+
+```json
+{
+  "mcpServers": {
+    ...,
     "congress_gov_mcp": {
       "command": "uv",
       "args": [
         "run",
-        "/path/to/congress_gov_mcp/server.py"
-      ],
-      "env": {
-        "CONGRESS_GOV_API_KEY": "your-api-key-here"
-      }
+        "--env-file",
+        "/absolute_path/to/congress_gov_mcp/.env",
+        "/absolute_path_to/congress_gov_mcp/server.py"
+      ]
     }
   }
 }
-```
 
-#### Claude Code
-
-#### Local Installation
-```
-claude mcp add -s local --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="your-api-key-here /path/to/congress_gov_mcp/server.py "
-```
-
-#### User Installation
-
-```
-claude mcp add -s user --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="your-api-key-here /path/to/congress_gov_mcp/server.py "
-```
-
-#### Project Installation
-
-```
-claude mcp add -s project --name congress_gov_mcp --env CONGRESS_GOV_API_KEY="your-api-key-here /path/to/congress_gov_mcp/server.py "
-```
+````
 
 ## Roadmap
 
