@@ -20,13 +20,13 @@ congress_gov_api_key = os.environ.get("CONGRESS_GOV_API_KEY")
 
 
 @mcp.tool()
-def get_swagger():
+async def get_swagger():
     url = "https://raw.githubusercontent.com/LibraryOfCongress/api.congress.gov/refs/heads/main/Documentation/swagger.json"
     return requests.get(url).json()
 
 
 @mcp.tool()
-def get_bills(
+async def get_bills(
     congress: int | None = None,
     bill_type: str | None = None,
     bill_number: int | None = None,
@@ -97,7 +97,7 @@ def get_bills(
 
 
 @mcp.tool()
-def get_amendments(
+async def get_amendments(
     congress: int | None = None,
     amendment_type: str | None = None,
     amendment_number: int | None = None,
@@ -159,7 +159,7 @@ def get_amendments(
 
 
 @mcp.tool()
-def get_summaries(
+async def get_summaries(
     congress: int | None = None,
     bill_type: str | None = None,
     offset: int = 0,
@@ -225,7 +225,7 @@ def get_summaries(
 
 
 @mcp.tool()
-def get_congress(
+async def get_congress(
     congress: int | None = None,
     offset: int = 0,
     limit: int = 20
@@ -267,7 +267,7 @@ def get_congress(
 
 
 @mcp.tool()
-def get_members(
+async def get_members(
     bioguide_id: str | None = None,
     offset: int = 0,
     limit: int = 20,
@@ -322,7 +322,7 @@ def get_members(
 
 
 @mcp.tool()
-def get_house_votes(
+async def get_house_votes(
     congress: int | None = None,
     session: int | None = None,
     roll_call_number: int | None = None,
@@ -381,7 +381,7 @@ def get_house_votes(
 
 
 @mcp.tool()
-def get_committees(
+async def get_committees(
     system_code: str | None = None,
     offset: int = 0,
     limit: int = 20,
@@ -432,7 +432,7 @@ def get_committees(
 
 
 @mcp.tool()
-def get_committee_reports(
+async def get_committee_reports(
     congress: int | None = None,
     report_type: str | None = None,
     report_number: int | None = None,
@@ -494,7 +494,7 @@ def get_committee_reports(
 
 
 @mcp.tool()
-def get_committee_prints(
+async def get_committee_prints(
     congress: int | None = None,
     print_type: str | None = None,
     print_number: int | None = None,
@@ -556,7 +556,7 @@ def get_committee_prints(
 
 
 @mcp.tool()
-def get_committee_meetings(
+async def get_committee_meetings(
     congress: int | None = None,
     chamber: str | None = None,
     offset: int = 0,
@@ -611,7 +611,7 @@ def get_committee_meetings(
 
 
 @mcp.tool()
-def get_hearings(
+async def get_hearings(
     congress: int | None = None,
     chamber: str | None = None,
     hearing_number: int | None = None,
@@ -670,7 +670,7 @@ def get_hearings(
 
 
 @mcp.tool()
-def get_congressional_record(
+async def get_congressional_record(
     volume: int | None = None,
     page_prefix: str | None = None,
     page_number: int | None = None,
@@ -733,7 +733,7 @@ def get_congressional_record(
 
 
 @mcp.tool()
-def get_daily_congressional_record(
+async def get_daily_congressional_record(
     volume: int | None = None,
     issue: str | None = None,
     offset: int = 0,
@@ -788,7 +788,7 @@ def get_daily_congressional_record(
 
 
 @mcp.tool()
-def get_bound_congressional_record(
+async def get_bound_congressional_record(
     year: int | None = None,
     month: int | None = None,
     day: int | None = None,
@@ -847,7 +847,7 @@ def get_bound_congressional_record(
 
 
 @mcp.tool()
-def get_house_communication(
+async def get_house_communication(
     congress: int | None = None,
     communication_type: str | None = None,
     communication_number: int | None = None,
@@ -910,7 +910,7 @@ def get_house_communication(
 
 
 @mcp.tool()
-def get_house_requirement(
+async def get_house_requirement(
     congress: int | None = None,
     requirement_number: int | None = None,
     offset: int = 0,
@@ -965,7 +965,7 @@ def get_house_requirement(
 
 
 @mcp.tool()
-def get_senate_communication(
+async def get_senate_communication(
     congress: int | None = None,
     communication_type: str | None = None,
     communication_number: int | None = None,
@@ -1027,7 +1027,7 @@ def get_senate_communication(
 
 
 @mcp.tool()
-def get_nomination(
+async def get_nomination(
     congress: int | None = None,
     nomination_number: int | None = None,
     offset: int = 0,
@@ -1082,7 +1082,7 @@ def get_nomination(
 
 
 @mcp.tool()
-def get_crsreport(
+async def get_crsreport(
     product_code: str | None = None,
     offset: int = 0,
     limit: int = 20,
@@ -1133,7 +1133,7 @@ def get_crsreport(
 
 
 @mcp.tool()
-def get_treaty(
+async def get_treaty(
     congress: int | None = None,
     treaty_number: int | None = None,
     offset: int = 0,
