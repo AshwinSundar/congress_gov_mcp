@@ -13,6 +13,8 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
     ```
 2. Get a [Congress.gov API key](https://api.congress.gov/sign-up/).
 
+3. Install Claude Desktop, Claude Code, or another client that supports [MCP Integrations](https://modelcontextprotocol.io/clients)
+
 ### Initial Setup
 
 1. Complete [Prerequisites](#Prerequisites)
