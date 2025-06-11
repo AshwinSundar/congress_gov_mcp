@@ -1,12 +1,25 @@
 # <span>Congress.gov</span> MCP server
 
+[![smithery badge](https://smithery.ai/badge/@AshwinSundar/congress_gov_mcp)](https://smithery.ai/server/@AshwinSundar/congress_gov_mcp)
+
 Ever wonder what our (US) Congress is up to? Tired of reading the news to find out? Ask the US Congress API yourself.
 
 Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 
 ## Installation
 
-### Prerequisites
+### Installing via Smithery
+
+To install congress_gov_mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@AshwinSundar/congress_gov_mcp):
+
+```bash
+npx -y @smithery/cli install @AshwinSundar/congress_gov_mcp --client claude
+```
+
+### Manual Installation
+
+#### Prerequisites
+
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/). The easiest way on macOS and Linux is:
     ```
     curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -15,7 +28,8 @@ Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 
 3. Install Claude Desktop, Claude Code, or another client that supports [MCP Integrations](https://modelcontextprotocol.io/clients)
 
-### Initial Setup
+
+#### Initial Setup
 
 1. Complete [Prerequisites](#Prerequisites)
 2. Clone this repository, and `cd` in:
@@ -203,4 +217,3 @@ which uv
         - [x] /{congress}/{treatyNumber}
             - [ ] /actions
             - [ ] /committees
-
