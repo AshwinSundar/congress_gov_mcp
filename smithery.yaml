@@ -1,0 +1,19 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'python', args: ['server.py'], env: { CONGRESS_GOV_API_KEY: config.congressGovApiKey } })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - congressGovApiKey
+    properties:
+      congressGovApiKey:
+        type: string
+        description: Your Congress.gov API key
+  exampleConfig:
+    congressGovApiKey: your_api_key_here
