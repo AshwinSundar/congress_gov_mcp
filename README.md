@@ -85,8 +85,6 @@ which uv
       "command": "/absolute_path/to/uv",
       "args": [
         "run",
-        "--env-file",
-        "/absolute_path/to/congress_gov_mcp/.env",
         "/absolute_path_to/congress_gov_mcp/server.py"
       ]
     }
@@ -108,8 +106,6 @@ which uv
       "command": "uv",
       "args": [
         "run",
-        "--env-file",
-        "/absolute_path/to/congress_gov_mcp/.env",
         "/absolute_path_to/congress_gov_mcp/server.py"
       ]
     }
