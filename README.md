@@ -6,6 +6,10 @@ Ever wonder what our (US) Congress is up to? Tired of reading the news to find o
 
 Unofficial MCP server for the [Congress.gov API](https://api.congress.gov)
 
+<a href="https://glama.ai/mcp/servers/@AshwinSundar/congress_gov_mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@AshwinSundar/congress_gov_mcp/badge" alt="Congress[.]gov Server MCP server" />
+</a>
+
 ## Installation
 
 ### Installing via Smithery
